@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript 4일차 randum 함수</title>
+    <script>
+        //Math.random() : 기본은 소수점 출력
+        var a = Math.random()*1;
+        //console.log(a);
+
+        //ceil : 올림. 0.1 = 1, 0.5 = 1
+        var b = Math.ceil(Math.random()*1);
+        //console.log(b);
+
+        //floor : 내림. 0.1 = 0, 0.5 = 0
+        var c = Math.floor(Math.random()*1);   
+       // console.log(c);
+
+        //round : 반올림 0.1 = 0, 0.5 = 1
+        var d = Math.round(Math.random()*1);
+        //console.log(d);
+
+        /*응용문제. pc가 1~20까지의 숫자를 총 다섯번 자동으로 출력합니다.*/
+
+        var w = 0;
+        while(w < 5) {
+            var e = Math.ceil(Math.random()*20);
+           // console.log(e);
+            w++;
+        }
+
+        function pd() {
+            var total = ""; //자료형 구분하는게 중요
+            var g = 0;
+            var f;
+            while(g < 5) {
+                f = Math.floor(Math.random()*10);
+                total += f;
+                g++;
+            }
+            console.log(total);
+
+            fr.product_code.value = total;
+        }
+
+
+    </script>
+</head>
+<body>
+    <form id="fr" name="fr">
+        <input type="text" name="product_code" readonly maxlength="5">
+        <input type="button" value="상품코드생성" onclick="pd()">
+    </form>
+</body>
+</html>
