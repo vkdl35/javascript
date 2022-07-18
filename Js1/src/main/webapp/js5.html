@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0718 HTML 코드 function 없이 <script></script>를 body밑으로</title>
+<script>
+
+var notice=["2022년 5월부터 야간개장 오픈!!", "한국민속촌 귀굴 5월~11월까지 개장!!","봄엽서 시골 여름 이벤트 행사 7월~9월까지"
+         ];
+
+
+
+</script>
+
+<style>
+
+.notice { 
+font-size:13px; 
+font-weight: bold;
+width:150px;
+height: 30px;
+background-color: black;
+border-radius: 30px;
+color: white;
+line-height: 30px;
+text-align: center;}
+
+</style>
+</head>
+<body>
+<input type="button" value="생성" onclick="abc()">
+<div id="box">
+</div>
+<br><br>
+<fieldset>
+<legend class="notice">공지사항[NOTICE]</legend>
+<ul id="notice"></ul>
+</fieldset>
+</body>
+
+<script> //script가 html보다 아래에 있을경우 함수 적용 하지않고 즉시 실행이 필요하면 HTML코드 아래에 적음
+//html 태그가 로그 된 후 javascript가 작동되게 하기 위해 
+
+
+   var ea=notice.length;
+   var k=0;
+   var html,text;
+   do{
+      html = document.createElement("li");
+      text= document.createTextNode(notice[k]);
+      html.append(text);
+      document.getElementById("notice").append(html);
+      k++;
+   }while(k<ea);
+   
+
+function abc() {
+   
+var id = document.getElementById("box");
+var o_ul= document.createElement("ul");
+
+var w=0;
+while(w<10){
+var o_li= document.createElement("li");
+var text=document.createTextNode("연습"+w);
+o_li.append(text);
+o_ul.append(o_li);
+id.append(o_ul);
+w++;
+}
+}
+
+
+
+</script>
+</html>
