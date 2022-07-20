@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript 4일차 파라미터 전달(Form, location) + js7.html </title>
+    <script>
+        /*  아이디 : 
+            국적 :
+        */
+        var url = window.location.search;
+        var sp = url.split("&eee=");
+        var po = sp[1];
+        var sp2 = sp[0].split("?ddd=");
+        var po2 = sp2[1];
+    </script>
+</head>
+<body>
+    <p>
+        아이디 : <span id="a1"></span><br>
+        국적 : <span id="b1"></span>
+    </p>
+</body>
+<script>
+    document.getElementById("a1").append(po2);
+    //document.getElementById("a1").innerText = po2;
+    document.getElementById("b1").innerText = po;
+</script>
+</html>

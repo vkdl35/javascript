@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javasctipt 5일차 all checkbox + radio 기능</title>
+    <script>
+        function abc() {
+
+            var mi = document.getElementById("all");
+            var use_radio;
+            var use_radio2;
+
+            if(mi.checked==true) {
+                use_radio=true;
+            }
+            else {
+                use_radio2=true;
+            }
+
+            var w = 0;
+            while(w < 4) {
+                frm.ag[w].checked=use_radio;
+                frm.nag[w].checked = use_radio2;
+                w++;
+            }
+
+            
+
+        }
+    </script>
+    <style>
+        ul,li {margin: 0; padding: 0; list-style: none;}
+    </style>
+</head>
+<body>
+    [해당 광고 서비스를 선택하세요.]<br><br>
+    <form name="frm" id="frm">
+        SMS 수신 여부 :
+        <ul>
+            <label><li><input type="radio" name="ra1" id="ag">동의함</li></label>
+            <label><li><input type="radio" name="ra1" id="nag" checked>동의 안함</li></label>
+        </ul>
+
+        이메일 수신 여부 :
+        <ul>
+            <label><li><input type="radio" name="ra2" id="ag">동의함</li></label>
+            <label><li><input type="radio" name="ra2" id="nag" checked>동의 안함</li></label>
+        </ul>
+
+        이벤트 알림 수신 여부 :
+        <ul>
+            <label><li><input type="radio" name="ra3" id="ag">동의함</li></label>
+            <label><li><input type="radio" name="ra3" id="nag" checked>동의 안함</li></label>
+        </ul>
+
+        푸시 알림 수신 여부 :
+        <ul>
+            <label><li><input type="radio" name="ra4" id="ag">동의함</li></label>
+            <label><li><input type="radio" name="ra4" id="nag" checked>동의 안함</li></label>
+        </ul>
+        
+        <br>
+        <label>전체 서비스에 동의함<input type="checkbox" name="all" id="all" onclick="abc();"></label>
+    </form>
+</body>
+</html>

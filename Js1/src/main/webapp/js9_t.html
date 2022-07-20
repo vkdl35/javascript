@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javasctipt 5일차 all checkbox + radio 기능</title>
+    <script>
+        var names = ["sms","email","event","push"];
+        function abc() {
+            var boolean = true;
+            var code;
+
+            if(f.all.checked==true) {
+                code = 0;
+                boolean = true;
+            }
+            else {
+                code = 1;
+                boolean = true;
+            }
+
+            var w = 0;
+            var test;
+            while(w < names.length) {
+                test = document.getElementsByName(names[w]);
+                test[code].checked = boolean;
+                w++;
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <form name="f" id="f">
+        <p>[해당 광고 서비스를 선택하세요.]</p>
+        <ul>
+        	<li>SMS 수신여부 : <input type="radio" name="sms" value="N">동의함 <input type="radio" name="sms" value="N" checked>동의 안함</li>
+        	<li>이메일 수신여부 : <input type="radio" name="email" value="N">동의함 <input type="radio" name="email" value="N" checked>동의 안함</li>
+        	<li>이벤트 알림 수신여부 : <input type="radio" name="event" value="N">동의함 <input type="radio" name="event" value="N" checked>동의 안함</li>
+        	<li>푸시 알림 수신여부 : <input type="radio" name="push" value="N">동의함 <input type="radio" name="push" value="N" checked>동의 안함</li>
+        </ul>
+        <label><input type="checkbox" id="all" onclick="abc();">전체 서비스에 동의함</label>
+    </form>
+</body>
+</html>

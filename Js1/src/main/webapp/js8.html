@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chtome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javasctipt 5일차 all checkbox 기능</title>
+    <script>
+        function abc() {
+            var me = document.getElementById("all");
+            var useck;
+            
+            /*조건문 형태*/
+            if(me.checked==true) {
+                useck=true;
+            }
+            else {
+                useck=false;
+            }
+            
+            /* (삼항연산식)
+            var me = document.getElementById("all").checked;
+            var useck;
+            me==true?(useck=true):(useck=false);
+            */
+            
+            var w = 0;
+            while(w < 5) {  //하위 오브젝트에 대한 name값으로 모두 true, false로 적용
+                frm.ct[w].checked = useck;
+                w++;
+            }
+            
+            /*부록*/
+            var ea = frm.ct.length; //name이 모두 같을 경우
+            console.log(ea);
+            
+        }
+    </script>
+</head>
+<body>
+    <form name="frm" id="frm">
+        <label><input type="checkbox" name="all" id="all" onclick="abc();"> 전체선택</label><br>
+            <input type="checkbox" name="ct" id="ct1"> no1<br>
+            <input type="checkbox" name="ct" id="ct2"> no2<br>
+            <input type="checkbox" name="ct" id="ct3"> no3<br>
+            <input type="checkbox" name="ct" id="ct4"> no4<br>
+            <input type="checkbox" name="ct" id="ct5"> no5<br>
+    </form>
+</body>
+</html>
