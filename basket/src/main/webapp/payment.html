@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <title>  가전제품 종합쇼핑몰 포홈테이블 입니다. </title>
+        <script src="http://mekeyace.kbsn.or.kr/mysql.js"></script>
+        <script>
+        
+        </script>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./payment.css">
+    </head>
+    <body>
+        <!-- 최상단 -->
+        <header>
+            <span class="home">HOME > 주문서 작성/결제</span>
+        </header>
+        <!-- 주문진행상황 -->
+        <nav>
+            <div class="bnav">
+                <span class="bleft">주문서작성/결제</span>
+                <ul class="bright">
+                    <li>01 장바구니</li>
+                    <li><img src="./ico2/icon_join_step_off.png"></li>
+                    <li>02 주문서작성/결제</li>
+                    <li><img src="./ico2/icon_join_step_on.png"></li>
+                    <li>03 주문완료</li>
+                </ul>
+            </div>
+        </nav>
+        <span class="text">
+            주문상세내역
+        </span>
+        <!-- 상품 출력 -->
+        <section>
+            <div id="prodiv" class="prodiv">
+                <ul class="proul">
+                    <li>
+                        <span></span>
+                        <span>상품/옵션정보</span>
+                    </li>
+                    <li>수량</li>
+                    <li>상품금액</li>
+                    <li>할인/적립</li>
+                    <li>합계금액</li>
+                </ul>
+            </div>
+            <section>
+            
+            <div class="view" id="view">
+                <ul class="viewul" id="viewul">
+                    <li>    <!--이미지와 상품명, 색깔, 사이즈 베열 적용-->
+                        <label><img id="img1"></label>
+                        <ol id="olsc">
+                            <li id="li_1"></li>
+                            <li id="li_2"></li>
+                            <li id="li_3"></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <form id="f1" name="f1">
+                            <div class="countbox">  <!--수량 적용 + up, down시 수량 조절(음수값 적용 x)-->
+                                
+                                <!--<span class="spcss" id="res"></span>-->
+                                <input type="text" value="1" name="it" id="it" class="ea" readonly>
+                                
+                                <span class="up" onclick="cot1();"></span>
+                                <span class="down" onclick="cot2();"></span>
+                            </div>
+                        </form>
+                        
+                    </li>
+                    <li id="li_4"></li>   <!--해당 상품 금액 변경 배열-->
+                    <li id="li_5"></li>
+                    <li id="li_6"></li> <!--총 수량만큼 상품 금액 변경-->
+                </ul>
+            </div>
+            
+        </section>
+            <!-- 상품 합계 -->
+            <div class="totalbox">
+                <ul class="totalul">
+                    <li id="li_7"></li>  <!--전체 상품 개수-->
+                    <li>배송비</li>
+                    <li>합계</li>
+                </ul>
+                <ol class="totalol">
+                    <li id="li_8"></li>  <!--구매 값 전부 합산-->
+                    <li><img src="./ico2/order_price_plus.png"></li>
+                    <li>0원</li>
+                    <li><img src="./ico2/order_price_total.png"></li>
+                    <li id="li_9"></li>  <!--구매 값 전부 합산-->
+                </ol>
+            </div>
+            <!-- 버튼 -->
+                <div class="btn">
+                    <span class="pay" id="pay" onclick="paynow();">결제하기</span>   <!--클릭시 c파트로 파라미터값 전달-->
+                </div>   
+        </section>
+    </body>
+    <script>
+        var zz = 1;
+        function cot1() {
+            zz++;
+            f1.it.value=zz;
+        }
+        function cot2() {
+            zz--;
+            if(zz<=0) {
+                alert("1개 이상 선택해주세요.")
+            }
+            else {
+                f1.it.value=zz;
+            }
+        }
+        
+        //console.log(zz);
+        // .html?fr=3&fr=4&fr=5&fr=6
+
+        var uri = window.location.search;
+        var array = uri.split("&ck123=");
+        var ea = uri.split("&ck123=").length;
+        var array2 = array[0].split("?ck123=");
+        var array3;
+        var w2 = 0;
+        var list;
+        while(w2 < ea) {
+            if(w2==0) {
+            array3 = array2[1];
+        }
+        else {
+            array3 += "+"+array[w2];
+            //console.log(array3);
+        }
+            w2++;
+            
+        }
+        list = array3.split("+");
+        
+        
+       	
+        	
+        
+        
+        // if() {
+
+        // }
+
+        var code, mo_code;
+        var f,ff;
+        var total;
+
+        var nm_code, color_code, size_code, money, dc, img, ct;
+        //var por_list,total;
+        img = document.getElementById("img1");
+        
+        for(f in basket_product["flat_product"]) {
+        	
+            code = basket_product["flat_product"][f]["product_no"]; //상품코드
+            console.log(code);
+            var gg = 0;
+            while(gg < list.length) {
+            	if(list[gg]==code) {
+            		mo_code = basket_product["flat_product"][f]["product_money"];
+
+                    nm_code = basket_product["flat_product"][f]["product_nm"];
+                    color_code = basket_product["flat_product"][f]["product_color"];
+                    size_code = basket_product["flat_product"][f]["product_size"];
+
+                    money = basket_product["flat_product"][f]["product_money"];
+                    dc = basket_product["flat_product"][f]["product_dc"];
+                    img.src = basket_product["flat_product"][f]["product_img"]; 
+            	                   
+
+                
+            	}
+            	gg++;
+            	
+            	
+                //document.getElementById("viewul").append(li_1,li_2,li_3);
+                
+            }
+           
+            //ct = 
+            	
+        }       
+        
+        document.getElementById("li_1").append(nm_code);
+        document.getElementById("li_2").append(color_code);
+        document.getElementById("li_3").append(size_code);
+        document.getElementById("li_4").append(Number(money).toLocaleString()+"원");
+        document.getElementById("li_5").append(dc);
+        document.getElementById("li_6").append(Number(money).toLocaleString()+"원");
+        document.getElementById("li_7").append("총 "+Number(ct).toLocaleString()+"의 상품금액");
+        document.getElementById("li_8").append(Number(money).toLocaleString()+"원");
+        document.getElementById("li_9").append(Number(money).toLocaleString()+"원");
+        
+        
+        /* document.getElementById("li_1").append(nm_code);
+        document.getElementById("li_2").append(color_code);
+        document.getElementById("li_3").append(size_code);
+        document.getElementById("li_4").append(Number(money).toLocaleString()+"원");
+        document.getElementById("li_5").append(dc);
+        document.getElementById("li_6").append(Number(money).toLocaleString()+"원");
+        document.getElementById("li_7").append("총 "+Number(ct).toLocaleString()+"의 상품금액");
+        document.getElementById("li_8").append(Number(money).toLocaleString()+"원");
+        document.getElementById("li_9").append(Number(money).toLocaleString()+"원"); */
+
+        function paynow() {
+            // action="http://192.168.100.201:8080/basket/money.html"
+            location.href='http://192.168.100.201:8080/basket/money.html?total='+money;
+            
+        }
+        
+        
+        
+
+
+
+    </script>
+    
+    
+</html>
