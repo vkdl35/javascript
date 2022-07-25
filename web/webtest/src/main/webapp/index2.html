@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>AJAX 1일차 (JSON파일 로드)</title>
+<script>
+	let ok;
+
+	function ajax() {
+		function wck() {
+			if(window.XMLHttpRequest) {
+				return new XMLHttpRequest();
+			}
+		}
+		function fileload() {
+			if(ok.readyState==XMLHttpRequest.DONE && ok.status==200) {
+				jsonfile(this.response);	//xml 외에는 response을 사용
+			}
+		}
+		ok = wck();
+		ok.onreadystatechange = fileload;
+		ok.open("GET","./index2.json",true);
+		ok.send();
+	}
+	
+	function jsonfile(jdata) {
+		let j = JSON.parse(jdata);
+		console.log(j);
+		
+		//parsing (JSON, XML 만드는 작업)
+		//parse (JSON 데이터를 배열값으로 읽기 위한 작업) -> 원시 배열로 구성함
+		
+		
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="json 로드" onclick="ajax();">
+</body>
+</html>
