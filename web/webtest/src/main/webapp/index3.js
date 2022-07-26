@@ -36,7 +36,7 @@ function member_list(jdata){
 				tr.setAttribute("onclick","java_get('"+j.members[f][ff]+"')");
 			}
 			td = document.createElement("td");
-			console.log(j.members[f][ff]);
+			//console.log(j.members[f][ff]);
 			if(ff == "area") {
 				ff = "phone";
 			}
@@ -92,7 +92,7 @@ function error() {
 }
 
 function java_get(mid) {
-	location.href='./index3.html?mid='+mid;
+	location.href='./first.do?mid='+mid;
 }
 
 
