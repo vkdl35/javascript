@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>AJAX 3일차 (Jquery 중급 문법) - 확장함수</title>
+<script src="./jquery.js"></script>
+<script>
+	const c = "홍길동2";	//자바스크립트 전역변수
+	$(function () {
+		const $c = "테스트"//제이쿼리 전역변수
+		$("#btn").click(function() {
+			abc();	//자바스크립트 함수 호출
+			//해당 자바스크립트 함수로 전달시 제이쿼리에서 처리하는 변수값에 대한 적용사항이 전달되지 않음
+			$.fn.abc();
+		});
+		
+		$.fn.abc = function() {
+			console.log("확장함수");
+			abc();	//제이쿼리에서 자바스크립트 abc를 호출
+		}
+		$.fn.bbb = function() {
+			console.log($c);
+			console.log(c);
+		}
+		
+		function bbb() {
+			console.log("test");
+		}
+	});
+	function abc() {
+		console.log("test");
+		$.fn.bbb();	//자바스크립트에서 제이쿼리 확장 함수 호출 가능
+	}
+
+	
+	
+</script>
+</head>
+<body>
+	<!-- jquery 안에 javascript 함수는 호출하지 못함 -->
+	<input type="button" value="test" onclick="bbb()">	<!-- 제이쿼리 안에 있는 bbb 호출 불가 -->
+	<input type="button" value="test2" id="btn">	
+	<input type="button" value="test3" onclick="$.fn.bbb()"> <!-- 제이쿼리 안에 있는 확장함수를 onclick으로 핸들링 -->
+</body>
+</html>

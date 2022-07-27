@@ -17,4 +17,69 @@
   	<servlet-name>webtest</servlet-name>
   	<url-pattern>/first.do</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>webtest2</servlet-name>	
+  	<servlet-class>test.index4</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>webtest2</servlet-name>
+  	<url-pattern>/index4.do</url-pattern> <!-- java파일 url 경로 파일 변경 -->
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>webtest3</servlet-name>
+  	<servlet-class>test.index5</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>webtest3</servlet-name>
+  	<url-pattern>/index5.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>webtest4</servlet-name>
+  	<servlet-class>test.index7</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>webtest4</servlet-name>
+  	<url-pattern>/index7.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>webtest5</servlet-name>
+  	<servlet-class>test.index8</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>webtest5</servlet-name>
+  	<url-pattern>/index8.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>webtest6</servlet-name>
+  	<servlet-class>test.index10</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>webtest6</servlet-name>
+  	<url-pattern>/index10.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>webtest7</servlet-name>
+  	<servlet-class>test.index11</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>webtest7</servlet-name>
+  	<url-pattern>/index11</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>webtest8</servlet-name>
+  	<servlet-class>test.app</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>webtest8</servlet-name>
+  	<url-pattern>/app</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
