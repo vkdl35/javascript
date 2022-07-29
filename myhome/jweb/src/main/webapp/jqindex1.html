@@ -33,7 +33,7 @@
 					url:"./test1.do",
 					data:{sdate:$sdate,edate:$edate},
 					//data 전송시 sjon은 해당 backend가 배열값으로 받는 신호가 있어야만 처리가 가능하다
-					catch : false,
+					cache : false,
 					method:"GET",
 					dataType:"text",	//json, text, xml, script, jsonp
 					success:function($data) {

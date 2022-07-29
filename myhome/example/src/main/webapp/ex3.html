@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ajax 복습3</title>
+    <script src="./js/jquery.js"></script>
+    <script>
+    	$(function() {
+			$("#login2").click(function() {
+				var $a = $("#mid").val();
+				var $b = $("#mpass").val();
+				
+				$("#f").submit();
+			});
+		});
+    	
+    	function login() {
+			var a = document.getElementById("mid").value;
+			var b = document.getElementById("mpass").value;
+
+			f.submit();
+
+		}
+    </script>
+</head>
+<body>
+	<form name="f" id="f" method="GET" action="ex3.do">
+		<input type="text" name="mid" id="mid"><br>
+		<input type="password" name="mpass" id="mpass"><br>
+		<input type="button" value="js" onclick="login();">
+		<input type="button" value="jq" id="login2">
+	</form>
+</body>
+</html>
