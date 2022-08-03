@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>상품 리뷰 작성 페이지</title>
+<script>
+	function write2() {
+		if(f.user_name.value=="") {
+			alert("이름을 입력해주세요.");
+		}
+		else if(f.product_name.value=="") {
+			alert("상품명을 입력해주세요.");
+		}
+		else if(f.review_box.value==""){
+			alert("리뷰는 공백으로 둘 수 없습니다.");
+		}
+		else {
+			f.method="POST";
+			f.action="review_checked.do";
+			f.enctype="application/x-www-form-urlencoded";
+			f.submit();
+		}
+	}
+	function review_delete() {
+		if(confirm("확인시 페이지가 새로고침 됩니다.")) {			
+			location.replace('review_write.html');
+		}
+	}
+</script>
+</head>
+<body>
+	<form name="f" id="f" >
+		고객명 <input type="text" name="user_name"><br>
+		상품명 <input type="text" name="product_name"><br>
+		별점 
+		5점<input type="radio" name="star" value="5" checked>
+		4점<input type="radio" name="star" value="4">
+		3점<input type="radio" name="star" value="3">
+		2점<input type="radio" name="star" value="2">
+		1점<input type="radio" name="star" value="1"><br><br>
+		내용 <p><textarea cols="50" rows="20" name="review_box"></textarea></p>
+		<input type="button" value="작성완료" onclick="write2();">
+		<input type="button" value="작성취소" onclick="review_delete();"> 
+	</form>
+</body>
+</html>
