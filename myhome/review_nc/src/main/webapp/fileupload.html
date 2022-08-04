@@ -13,8 +13,9 @@
 </head>
 <body>
 	<!-- 파일첨부 기능이 있을 경우 무조건 post로만 전송이 가능합니다. -->
-	<form name="f" id="f" method="post" action="fileuploadok.do" enctype="multipart/form-data">
-		<input type="file" name="file" accept="image/*">
+	<!-- <form name="f" id="f" method="post" action="fileuploadok.do" enctype="multipart/form-data">  -->
+	<form name="f" id="f" method="post" action="fileok.do" enctype="multipart/form-data">
+		<input type="file" name="file" accept="image/*" multiple="multiple">
 		<input type="button" value="전송" onclick="abc();">
 	</form>
 </body>

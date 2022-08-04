@@ -19,7 +19,7 @@
 		else {
 			f.method="POST";
 			f.action="review_checked.do";
-			f.enctype="application/x-www-form-urlencoded";
+			f.enctype="multipart/form-data";
 			f.submit();
 		}
 	}
@@ -31,16 +31,17 @@
 </script>
 </head>
 <body>
-	<form name="f" id="f" >
+	<form name="f" id="f">
 		고객명 <input type="text" name="user_name"><br>
 		상품명 <input type="text" name="product_name"><br>
 		별점 
-		5점<input type="radio" name="star" value="5" checked>
-		4점<input type="radio" name="star" value="4">
-		3점<input type="radio" name="star" value="3">
-		2점<input type="radio" name="star" value="2">
-		1점<input type="radio" name="star" value="1"><br><br>
-		내용 <p><textarea cols="50" rows="20" name="review_box"></textarea></p>
+		<input type="radio" name="star" value="5" checked>5점
+		<input type="radio" name="star" value="4">4점
+		<input type="radio" name="star" value="3">3점
+		<input type="radio" name="star" value="2">2점
+		<input type="radio" name="star" value="1">1점<br><br>
+		내용 <p><textarea cols="50" rows="20" name="review_box"></textarea></p><br>
+		파일첨부 <input type="file" name="fileup" accept="image/*"><br>
 		<input type="button" value="작성완료" onclick="write2();">
 		<input type="button" value="작성취소" onclick="review_delete();"> 
 	</form>
