@@ -7,6 +7,7 @@ public class dbconfig {
 		
 		String dbdriver = "com.mysql.jdbc.Driver";
 		String dburl = "jdbc:mysql://localhost:3306/vkdl35";
+		//String dburl = "jdbc:mysql://umj7-009.cafe24.com/vkdl35";
 		String dbuser = "vkdl35";
 		String dbpass = "kalot854@91**";
 		
