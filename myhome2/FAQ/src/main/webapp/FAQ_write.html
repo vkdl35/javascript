@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FAQ 입력페이지</title>
+<script>
+	function b() {
+
+	}
+	function a() {
+		if(confirm("입력 취소시 이전 페이지로 돌아갑니다.")) {
+			location.href="index.html";
+		}
+	}
+</script>
+<link rel="stylesheet" type="text/css" href="./FAQ_write.css"/>
+</head>
+<body>
+	<form name="f" id="f">
+		<table>
+			<tr>
+				<td>카테고리</td>
+				<td class="c">
+					<select>
+					    <option value="">[카테고리 리스트]</option>
+					    <option value="배송문의">배송문의</option>
+					    <option value="반품/교환/환불">반품/교환/환불</option>
+					    <option value="주문/결제">주문/결제</option>
+					    <option value="회원서비스">회원서비스</option>
+					    <option value="안전거래">안전거래</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>글쓴이</td>
+				<td class="c"><input type="text"></td>
+			</tr>
+			<tr>
+				<td>질문내용</td>
+				<td class="c"><input type="text"></td>
+			</tr>
+			<tr>
+				<td>답변내용</td>
+				<td class="c"><textarea rows="20" cols="120"></textarea></td>
+			</tr>
+		</table>
+		<input type="button" value="입력취소" onclick="a();">
+		<input type="button" value="FAQ등록" onclick="b();">
+	</form>	
+</body>
+</html>
