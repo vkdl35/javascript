@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FAQ 입력페이지</title>
+<script>
+	function next() {
+		if(f.select_view.value=="") {
+			alert("카테고리를 선택해주세요.");
+		      f.select_view.focus();
+		      return false;
+		}
+		else if(f.ftext.value=="") {
+			 alert("질문내용을 입력해주세요.");
+		     f.ftext.focus();
+		     return false;
+		}
+		else if(f.ftextarea.value==""){
+		      alert("답변내용을 입력해주세요.");
+		      f.fretext.focus();
+		      return false;
+		   }
+		else {
+		      f.method="POST";
+		      f.action="FAQ_writeck.do";
+		      f.enctype="application/x-www-form-urlencoded";
+		      f.submit();
+		}
+	}
+	function cancel() {
+		if(confirm("입력 취소시 이전 페이지로 돌아갑니다.")) {
+			location.href="index.html";
+		}
+	}
+</script>
+<link rel="stylesheet" type="text/css" href="./FAQ_write.css"/>
+</head>
+<body>
+	<form name="f" id="f">
+		<table>
+			<tr>
+				<td>카테고리</td>
+				<td>
+					<input type="hidden" name="fview" value="Y">
+					<select name="select_category">
+					    <option value="">[카테고리 리스트]</option>
+					    <option value="배송문의">배송문의</option>
+					    <option value="반품/교환/환불">반품/교환/환불</option>
+					    <option value="주문/결제">주문/결제</option>
+					    <option value="회원서비스">회원서비스</option>
+					    <option value="안전거래">안전거래</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>글쓴이</td>
+				<td><input type="text" name="writer" readonly placeholder="관리자" value="관리자"></td>
+			</tr>
+			<tr>
+				<td>질문내용</td>
+				<td><input type="text" name="ftext"></td>
+			</tr>
+			<tr>
+				<td>답변내용</td>
+				<td><textarea name="ftextarea" rows="20" cols="120"></textarea></td>
+			</tr>
+		</table>
+		<input type="button" value="입력취소" onclick="cancel();">
+		<input type="button" value="FAQ등록" onclick="next();">
+	</form>	
+</body>
+</html>
