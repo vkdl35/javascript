@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>설문조사 입력창</title>
+<script type="text/javascript">
+	function btn() {
+		if(f3.username.value=="") {
+			alert("이름을 입력해주세요.");
+		}
+		else if(f3.userid.value=="") {
+			alert("아이디를 입력해주세요.");
+		}
+		else if(f3.usertel.value=="") {
+			alert("연락처를 입력해주세요.");
+		}
+		else {
+			f3.submit();
+		}
+	}
+</script>
+</head>
+<body>
+<p>[가장 어려운 Back-end 과목은?]</p>
+<form name="f3" method="post" action="./pollok.jsp" enctype="application/x-www-form-urlencoded">
+	고객명 <input type="text" name="username" value=""><br>
+	아이디 <input type="text" name="userid" value=""><br>
+	연락처 <input type="text" name="usertel" value=""><br>
+	<input type="radio" name="rd" value="0" checked>JAVA<br>
+	<input type="radio" name="rd" value="1">JAVA Servlet<br>
+	<input type="radio" name="rd" value="2">javascript<br>
+	<input type="radio" name="rd" value="3">AJAX<br>
+	<input type="radio" name="rd" value="4">JSP<br>
+	<input type="button" value="설문조사 참여" onclick="btn();">
+</form>
+</body>
+</html>
