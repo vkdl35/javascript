@@ -9,23 +9,20 @@
 <script>
 	function FAQ_check(no) {
 		if(no==1) {	//리스트로 이동
-			location.href='FAQ_list.html';
+			location.href='FAQ_list.jsp';
 		}
 		else {	//FAQ 저장
 			if(f.select_view.value=="") {
 				alert("카테고리를 선택해주세요.");
 			      f.select_view.focus();
-			      return false;
 			}
 			else if(f.ftext.value=="") {
 				 alert("질문내용을 입력해주세요.");
 			     f.ftext.focus();
-			     return false;
 			}
 			else if(f.ftextarea.value==""){
 			      alert("답변내용을 입력해주세요.");
 			      f.fretext.focus();
-			      return false;
 			   }
 			else {
 			      f.method="POST";

@@ -20,7 +20,7 @@ function faq_write() {
 }
 
 function modify(fidx) {
-	location.href='./FAQ_view.html?idx='+fidx;
+	location.href='./FAQ_view.jsp?idx='+fidx;
 }
 
 </script>

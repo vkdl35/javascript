@@ -8,24 +8,24 @@
 <script>
 function FAQ_check(no){
 	if(no==1){	//리스트로 이동
-		location.href='FAQ_list.html';
+		location.href='FAQ_list.jsp';
 	}
 	else{	//FAQ 저장
-		if(f.fcategory.value==""){
+		if(f00.select_category.value==""){
 			alert("카테고리를 선택해 주세요");
 		}
-		else if(f.ftext.value==""){
+		else if(f00.ftext.value==""){
 			alert("질문내용을 입력해 주세요");
 		}
-		else if(f.ftextarea.value==""){
+		else if(f00.ftextarea.value==""){
 			alert("답변내용을 입력해 주세요");
-			frm.faq_aw2.focus();
+			f00.ftextarea.focus();
 		}	
 		else{
-			frm.method="POST";
-			frm.action="FAQ_write.do";
-			frm.enctype="application/x-www-form-urlencoded";
-			frm.submit();
+			f00.method="POST";
+			f00.action="FAQ_write.do";
+			f00.enctype="application/x-www-form-urlencoded";
+			f00.submit();
 		}
 		
 	}
@@ -35,7 +35,7 @@ function FAQ_check(no){
 </head>
 <body>
 	<p>FAQ 입력 페이지</p>
-	<form name="f" id="f">
+	<form name="f00" id="f00">
 	<input type="hidden" name="faq_view" value="Y">
 		<table>
 			<tr>
